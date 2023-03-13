@@ -56,6 +56,22 @@ public class MyHeap<T> {
 		
 		elements[elementCounter] = newElement;
 		elementCounter++;
+		
+		//call reheapUp()
+	}
+	
+	public T remove() throws Exception{
+		if(isEmpty()) {
+			throw (new Exception("Heap is empty"));
+		}
+		
+		T element = elements[0];
+		elements[0] = elements[elementCounter - 1];
+		elementCounter--;
+		
+		//call reheapDown();
+		
+		return element;
 	}
 	
 	//public T getRightChild{
