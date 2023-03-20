@@ -74,6 +74,32 @@ public class MyHeap<T> {
 		return element;
 	}
 	
+	public void reheapUp(int indexOfElement) {
+		//rightChIndex = parentIndex * 2 + 2;
+		//leftChIndex = parentIndex * 2 + 1;
+		
+		//(rightChIndex - 2)/2 = parentIndex
+		//(leftChIndex - 1)/2 = parentIndex
+		
+		int indexOfParent = (int) ((indexOfElement - 1)/2);
+		
+		if (indexOfElement >= 0) {
+			
+			if( ((Comparable) (elements[indexOfElement])).compareTo(elements[indexOfParent]) > 0 ) {
+				swap(indexOfElement, indexOfParent);
+				reheapUp(indexOfParent);
+			}
+		}
+	}
+	
+	private void swap(int index1, int index2) {
+		T temp = elements[index1];
+		
+		elements[index1] = elements[index2];
+		elements[index2] = temp;
+		
+	}
+	
 	//public T getRightChild{
 		
 	//}
